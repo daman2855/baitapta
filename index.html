@@ -3,218 +3,384 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đáp án Speaking & Bài tập Món ăn</title>
+    <title>English Practice: Speaking & Detailed Culinary Recipes</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    
     <style>
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         body {
-            background-color: #f4f6f8;
-            padding: 20px;
-            color: #333;
+            background: linear-gradient(135deg, #e0f2fe 0%, #dbeafe 50%, #fef3c7 100%);
+            min-height: 100vh;
+            padding: 40px 15px;
+            font-family: 'Quicksand', sans-serif;
+            color: #1e293b;
+            line-height: 1.6;
         }
         .container {
-            max-width: 700px;
+            max-width: 900px;
             margin: 0 auto;
             background: #ffffff;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            padding: 40px 35px;
+            border-radius: 24px;
+            box-shadow: 0 20px 45px rgba(15, 23, 42, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.8);
         }
         h1 {
+            font-family: 'Montserrat', sans-serif;
             text-align: center;
-            color: #1a5276;
-            margin-bottom: 20px;
-            font-size: 22px;
-            border-bottom: 2px solid #1a5276;
-            padding-bottom: 10px;
+            background: linear-gradient(135deg, #1e40af, #d97706);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 30px;
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            text-transform: uppercase;
         }
         .section-title {
-            background-color: #2980b9;
-            color: white;
-            padding: 8px 12px;
-            border-radius: 6px;
-            font-size: 16px;
-            margin-top: 20px;
-            margin-bottom: 12px;
-            font-weight: bold;
+            font-family: 'Montserrat', sans-serif;
+            color: #ffffff;
+            padding: 14px 22px;
+            border-radius: 14px;
+            font-size: 18px;
+            margin-top: 35px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            letter-spacing: 0.3px;
+        }
+        .bg-blue {
+            background: linear-gradient(135deg, #1d4ed8, #3b82f6);
+            box-shadow: 0 6px 16px rgba(29, 78, 216, 0.25);
+        }
+        .bg-orange {
+            background: linear-gradient(135deg, #d97706, #f59e0b);
+            box-shadow: 0 6px 16px rgba(217, 119, 6, 0.25);
         }
         .sub-title {
-            color: #27ae60;
-            font-weight: bold;
-            margin: 12px 0 8px 0;
-            font-size: 15px;
+            color: #1e40af;
+            font-weight: 700;
+            margin: 22px 0 12px 0;
+            font-size: 17px;
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+            margin-bottom: 25px;
+            border-radius: 14px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+            border: 1px solid #e2e8f0;
         }
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-bottom: 15px;
+            background: #ffffff;
         }
         th, td {
-            border: 1px solid #ddd;
-            padding: 10px;
+            border: 1px solid #f1f5f9;
+            padding: 14px 16px;
             text-align: left;
-            font-size: 13px;
+            font-size: 14.5px;
             vertical-align: top;
         }
         th {
-            background-color: #f2f2f2;
-            color: #1a5276;
+            background-color: #eff6ff;
+            color: #1e40af;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 0.5px;
         }
+        tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+
         .vi-text {
-            color: #666;
+            color: #64748b;
             font-style: italic;
-            font-size: 12px;
-            margin-top: 4px;
+            font-size: 13px;
+            margin-top: 6px;
             display: block;
-        }
-        .food-box {
-            background-color: #fef9e7;
-            border-left: 5px solid #f39c12;
-            padding: 15px;
-            border-radius: 6px;
-            margin-top: 10px;
-        }
-        .food-item {
-            margin-bottom: 15px;
-            font-size: 14px;
             line-height: 1.5;
         }
-        .english-explain {
-            background-color: #ffffff;
-            border: 1px solid #f1c40f;
-            padding: 10px;
-            border-radius: 6px;
-            margin-top: 5px;
-            color: #2c3e50;
+
+        .food-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            margin-top: 20px;
+        }
+        .food-card {
+            background: #ffffff;
+            border: 2px solid #fef3c7;
+            border-radius: 18px;
+            padding: 24px;
+            box-shadow: 0 8px 20px rgba(217, 119, 6, 0.08);
+            transition: transform 0.2s ease;
+        }
+        .food-card:hover {
+            transform: translateY(-2px);
         }
         .badge-food {
-            background-color: #e67e22;
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #d97706, #b45309);
             color: white;
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-weight: bold;
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 16px;
+            display: inline-block;
+            margin-bottom: 14px;
+            box-shadow: 0 4px 10px rgba(180, 83, 9, 0.25);
+        }
+        .recipe-box {
+            background-color: #fffbeb;
+            border-left: 5px solid #f59e0b;
+            padding: 18px 20px;
+            border-radius: 10px;
+            font-size: 14.5px;
+            line-height: 1.7;
+            color: #1e293b;
+        }
+        .recipe-box b.section-head {
+            font-family: 'Montserrat', sans-serif;
+            color: #b45309;
+            font-size: 15px;
+            display: block;
+            margin-top: 10px;
+            margin-bottom: 6px;
+        }
+        .recipe-box b.section-head:first-child {
+            margin-top: 0;
+        }
+        .step-list {
+            margin-left: 18px;
+            margin-bottom: 10px;
+        }
+        .step-list li {
+            margin-bottom: 6px;
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h1>🗣️ HỌC TIẾNG ANH: SPEAKING & FOOD DISHES</h1>
+    <h1>🗣️ ENGLISH LESSON: SPEAKING & DETAILED RECIPES</h1>
 
     <!-- SPEAKING PART -->
-    <div class="section-title">PHẦN 1: SPEAKING (Luyện Nói Theo Cặp)</div>
+    <div class="section-title bg-blue">
+        <span>💬</span> PHẦN 1: SPEAKING PART 2 (LUYỆN NÓI THEO CẶP)
+    </div>
 
     <div class="sub-title">🟢 Lần 1: Summer Job (Cửa hàng Sô-cô-la)</div>
-    <table>
-        <tr>
-            <th style="width: 5%;">#</th>
-            <th style="width: 47.5%;">Câu hỏi (Student B) & Dịch</th>
-            <th style="width: 47.5%;">Trả lời (Student A) & Dịch</th>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td><b>Where is the job?</b><span class="vi-text">Công việc ở đâu?</span></td>
-            <td><b>At Mr Sweet's Chocolate Shop.</b><span class="vi-text">Ở cửa hàng sô-cô-la của ông Sweet.</span></td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td><b>What time does it start?</b><span class="vi-text">Mấy giờ bắt đầu làm?</span></td>
-            <td><b>From 9 a.m. to 1 p.m.</b><span class="vi-text">Từ 9 giờ sáng đến 1 giờ chiều.</span></td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td><b>What do you do?</b><span class="vi-text">Làm công việc gì?</span></td>
-            <td><b>Serve customers and tidy up.</b><span class="vi-text">Phục vụ khách hàng và dọn dẹp.</span></td>
-        </tr>
-        <tr>
-            <td>4</td>
-            <td><b>How much is the pay?</b><span class="vi-text">Tiền lương bao nhiêu?</span></td>
-            <td><b>£20 per day.</b><span class="vi-text">20 bảng Anh mỗi ngày.</span></td>
-        </tr>
-        <tr>
-            <td>5</td>
-            <td><b>How to get more information?</b><span class="vi-text">Hỏi thêm thông tin bằng cách nào?</span></td>
-            <td><b>Call 364 209.</b><span class="vi-text">Gọi số điện thoại 364 209.</span></td>
-        </tr>
-    </table>
+    <div class="table-responsive">
+        <table>
+            <tr>
+                <th style="width: 6%;">#</th>
+                <th style="width: 47%;">Câu hỏi (Student B) & Dịch</th>
+                <th style="width: 47%;">Trả lời (Student A) & Dịch</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td><b>Where is the job?</b><span class="vi-text">Công việc ở đâu?</span></td>
+                <td><b>At Mr Sweet's Chocolate Shop.</b><span class="vi-text">Ở cửa hàng sô-cô-la của ông Sweet.</span></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td><b>What time does it start?</b><span class="vi-text">Mấy giờ bắt đầu làm?</span></td>
+                <td><b>From 9 a.m. to 1 p.m.</b><span class="vi-text">Từ 9 giờ sáng đến 1 giờ chiều.</span></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td><b>What do you do?</b><span class="vi-text">Làm công việc gì?</span></td>
+                <td><b>Serve customers and tidy up.</b><span class="vi-text">Phục vụ khách hàng và dọn dẹp.</span></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td><b>How much is the pay?</b><span class="vi-text">Tiền lương bao nhiêu?</span></td>
+                <td><b>£20 per day.</b><span class="vi-text">20 bảng Anh mỗi ngày.</span></td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td><b>How to get more information?</b><span class="vi-text">Hỏi thêm thông tin bằng cách nào?</span></td>
+                <td><b>Call 364 209.</b><span class="vi-text">Gọi số điện thoại 364 209.</span></td>
+            </tr>
+        </table>
+    </div>
 
     <div class="sub-title">🔵 Lần 2: Hotel Job (Khách sạn)</div>
-    <table>
-        <tr>
-            <th style="width: 5%;">#</th>
-            <th style="width: 47.5%;">Câu hỏi (Student A) & Dịch</th>
-            <th style="width: 47.5%;">Trả lời (Student B) & Dịch</th>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td><b>What is the name of the hotel?</b><span class="vi-text">Tên khách sạn là gì?</span></td>
-            <td><b>Sunny Beach Hotel.</b><span class="vi-text">Khách sạn Sunny Beach.</span></td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td><b>Do you work in the mornings?</b><span class="vi-text">Có làm việc vào buổi sáng không?</span></td>
-            <td><b>Yes, from 8 a.m. to 2 p.m.</b><span class="vi-text">Có, từ 8 giờ sáng đến 2 giờ chiều.</span></td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td><b>How old do I need to be?</b><span class="vi-text">Yêu cầu bao nhiêu tuổi?</span></td>
-            <td><b>Over 16 years old.</b><span class="vi-text">Chỉ dành cho người trên 16 tuổi.</span></td>
-        </tr>
-        <tr>
-            <td>4</td>
-            <td><b>What is the website?</b><span class="vi-text">Địa chỉ trang web là gì?</span></td>
-            <td><b>www.sunnybeach.com</b><span class="vi-text">www.sunnybeach.com</span></td>
-        </tr>
-        <tr>
-            <td>5</td>
-            <td><b>Where is the hotel?</b><span class="vi-text">Khách sạn ở đâu?</span></td>
-            <td><b>At 14 Kings Road.</b><span class="vi-text">Ở số 14 đường Kings Road.</span></td>
-        </tr>
-    </table>
+    <div class="table-responsive">
+        <table>
+            <tr>
+                <th style="width: 6%;">#</th>
+                <th style="width: 47%;">Câu hỏi (Student A) & Dịch</th>
+                <th style="width: 47%;">Trả lời (Student B) & Dịch</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td><b>What is the name of the hotel?</b><span class="vi-text">Tên khách sạn là gì?</span></td>
+                <td><b>Sunny Beach Hotel.</b><span class="vi-text">Khách sạn Sunny Beach.</span></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td><b>Do you work in the mornings?</b><span class="vi-text">Có làm việc vào buổi sáng không?</span></td>
+                <td><b>Yes, from 8 a.m. to 2 p.m.</b><span class="vi-text">Có, từ 8 giờ sáng đến 2 giờ chiều.</span></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td><b>How old do I need to be?</b><span class="vi-text">Yêu cầu bao nhiêu tuổi?</span></td>
+                <td><b>Over 16 years old.</b><span class="vi-text">Chỉ dành cho người trên 16 tuổi.</span></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td><b>What is the website?</b><span class="vi-text">Địa chỉ trang web là gì?</span></td>
+                <td><b>www.sunnybeach.com</b><span class="vi-text">www.sunnybeach.com</span></td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td><b>Where is the hotel?</b><span class="vi-text">Khách sạn ở đâu?</span></td>
+                <td><b>At 14 Kings Road.</b><span class="vi-text">Ở số 14 đường Kings Road.</span></td>
+            </tr>
+        </table>
+    </div>
 
     <!-- FOOD DISHES PART -->
-    <div class="section-title">PHẦN 2: FOOD & DISHES (Món Ăn & Giải Thích Bằng Tiếng Anh)</div>
+    <div class="section-title bg-orange">
+        <span>🍲</span> PHẦN 2: MY FAVORITE DISHES & RECIPES (CÁCH LÀM CHI TIẾT & LÝ DO THÍCH)
+    </div>
     
-    <div class="food-box">
-        <div class="food-item">
-            <span class="badge-food">1. Pho (Noodle Soup)</span>
-            <div class="english-explain">
-                <b>English Explanation:</b> Pho is a traditional Vietnamese soup made of broth, rice noodles, herbs, and meat (usually beef or chicken). It is famous for its rich flavor and fragrant aroma.<br>
-                <span class="vi-text">Dịch: Phở là món súp truyền thống của Việt Nam làm từ nước dùng, bánh phở, thảo mộc và thịt (thường là bò hoặc gà). Món ăn nổi tiếng với hương vị đậm đà và thơm ngon.</span>
+    <div class="food-grid">
+
+        <!-- Món 1: Cơm Chiên Hải Sản -->
+        <div class="food-card">
+            <span class="badge-food">1. Special Seafood Fried Rice (Cơm Chiên Hải Sản)</span>
+            <div class="recipe-box">
+                <b class="section-head">Ingredients & Preparation:</b>
+                Cold leftover rice, fresh shrimp, squid, diced carrots, green peas, eggs, garlic, soy sauce, and green onions.
+                
+                <b class="section-head">Step-by-Step Cooking Instructions:</b>
+                <ul class="step-list">
+                    <li><b>Step 1:</b> Heat oil in a large wok over medium heat and sauté minced garlic until fragrant and golden brown.</li>
+                    <li><b>Step 2:</b> Add diced shrimp and squid, cooking for about three minutes until fully done, then set them aside.</li>
+                    <li><b>Step 3:</b> Pour beaten eggs into the wok, add cold cooked rice immediately, and stir-fry vigorously to coat every single grain with egg.</li>
+                    <li><b>Step 4:</b> Mix in the cooked seafood, carrots, peas, and season with soy sauce, pepper, and chopped scallions before serving hot.</li>
+                </ul>
+
+                <b class="section-head">Why I Like It:</b>
+                I absolutely love special fried rice because it is extraordinarily tasty, fragrant, and satisfying after a long busy day. Preparing this meal allows me to express my culinary creativity by combining savory seafood with fresh vegetables, turning simple everyday leftover rice into a gourmet masterpiece.
+
+                <span class="vi-text"><br><b>Dịch nghĩa tiếng Việt:</b><br>
+                • <b>Nguyên liệu:</b> Cơm nguội, tôm tươi, mực, cà rốt thái hạt lựu, đậu hà lan, trứng, tỏi, xì dầu và hành lá.<br>
+                • <b>Các bước thực hiện:</b><br>
+                &nbsp;&nbsp;- <i>Bước 1:</i> Đun nóng dầu trong chảo lớn trên lửa vừa và phi thơm tỏi băm đến khi vàng ruộm.<br>
+                &nbsp;&nbsp;- <i>Bước 2:</i> Cho tôm và mực thái hạt lựu vào xào khoảng 3 phút đến khi chín tới, sau đó múc ra để riêng.<br>
+                &nbsp;&nbsp;- <i>Bước 3:</i> Đổ trứng đánh tan vào chảo, cho ngay cơm nguội vào đảo đều tay để trứng bao bọc từng hạt cơm.<br>
+                &nbsp;&nbsp;- <i>Bước 4:</i> Trộn hải sản đã chín, cà rốt, đậu hà lan vào, nêm nếm với xì dầu, tiêu và hành lá trước khi thưởng thức nóng.<br>
+                • <b>Lý do tớ thích:</b> Tớ cực kỳ thích cơm chiên đặc biệt vì nó vô cùng ngon miệng, thơm lừng và ấm bụng sau một ngày dài bận rộn. Món ăn này giúp tớ thỏa sức sáng tạo ẩm thực khi kết hợp hải sản đậm đà với rau củ tươi ngon, biến hạt cơm nguội đơn giản thành một tuyệt phẩm tuyệt vời.</span>
             </div>
         </div>
 
-        <div class="food-item">
-            <span class="badge-food">2. Banh Mi (Vietnamese Sandwich)</span>
-            <div class="english-explain">
-                <b>English Explanation:</b> Banh Mi is a crisp baguette filled with various ingredients such as pork, pate, cucumber, cilantro, and pickled vegetables. It is a very popular street food.<br>
-                <span class="vi-text">Dịch: Bánh mì là loại bánh mì giòn kẹp nhiều nhân như thịt lợn, pate, dưa chuột, rau mùi và đồ chua. Đây là món ăn đường phố rất phổ biến.</span>
+        <!-- Món 2: Phở Bò -->
+        <div class="food-card">
+            <span class="badge-food">2. Traditional Beef Pho (Phở Bò Truyền Thống)</span>
+            <div class="recipe-box">
+                <b class="section-head">Ingredients & Preparation:</b>
+                Beef marrow bones, beef tenderloin, flat rice noodles, charred ginger, star anise, cinnamon sticks, fish sauce, and fresh herbs.
+
+                <b class="section-head">Step-by-Step Cooking Instructions:</b>
+                <ul class="step-list">
+                    <li><b>Step 1:</b> Simmer beef marrow bones in water for six hours along with roasted ginger, onions, star anise, and cinnamon to create a crystal-clear, flavorful broth.</li>
+                    <li><b>Step 2:</b> Blanch fresh flat rice noodles in boiling water for thirty seconds, then place them neatly into a serving bowl.</li>
+                    <li><b>Step 3:</b> Arrange thinly sliced raw beef tenderloin and chopped green onions generously on top of the cooked rice noodles.</li>
+                    <li><b>Step 4:</b> Ladle the piping hot aromatic broth directly over the beef to cook it instantly, and serve immediately with fresh herbs and lime wedges.</li>
+                </ul>
+
+                <b class="section-head">Why I Like It:</b>
+                Pho is my favorite traditional Vietnamese dish because its broth offers a wonderfully complex balance of aromatic spices and rich savory flavor. Eating a steaming hot bowl of Pho on a chilly morning fills me with warmth, energy, and a deep appreciation for Vietnam's rich food heritage.
+
+                <span class="vi-text"><br><b>Dịch nghĩa tiếng Việt:</b><br>
+                • <b>Nguyên liệu:</b> Xương ống bò, thăn bò, bánh phở tươi, gừng nướng, hoa hồi, quế, nước mắm và rau thơm.<br>
+                • <b>Các bước thực hiện:</b><br>
+                &nbsp;&nbsp;- <i>Bước 1:</i> Ninh xương ống bò trong 6 tiếng cùng gừng nướng, hành tây, hoa hồi và quế để tạo nước dùng trong trẻo, đậm đà.<br>
+                &nbsp;&nbsp;- <i>Bước 2:</i> Chần bánh phở tươi qua nước sôi trong 30 giây rồi xếp gọn gàng vào bát.<br>
+                &nbsp;&nbsp;- <i>Bước 3:</i> Xếp các lát thịt thăn bò tái thái mỏng và hành lá cắt nhỏ lên trên phần bánh phở.<br>
+                &nbsp;&nbsp;- <i>Bước 4:</i> Chan nước dùng sôi ùng ục trực tiếp lên thịt bò để làm chín tái thịt ngay lập tức, thưởng thức cùng rau thơm và chanh tươi.<br>
+                • <b>Lý do tớ thích:</b> Phở là món ăn truyền thống tớ thích nhất vì nước dùng mang hương vị hòa quyện tuyệt vời từ các loại thảo mộc và vị ngọt đậm đà. Thưởng thức một bát phở nóng hổi vào buổi sáng se lạnh mang lại cảm giác ấm áp, năng lượng và niềm tự hào về ẩm thực Việt Nam.</span>
             </div>
         </div>
 
-        <div class="food-item">
-            <span class="badge-food">3. Pizza</span>
-            <div class="english-explain">
-                <b>English Explanation:</b> Pizza is a dish of Italian origin consisting of a flat round base of dough baked with a topping of tomato sauce and cheese, typically with added meat or vegetables.<br>
-                <span class="vi-text">Dịch: Pizza là món ăn nguồn gốc từ Ý gồm lớp đế bánh bột tròn nướng với sốt cà chua và phô mai, thường thêm thịt hoặc rau củ.</span>
+        <!-- Món 3: Bánh Mì -->
+        <div class="food-card">
+            <span class="badge-food">3. Vietnamese Banh Mi (Bánh Mì Sài Gòn)</span>
+            <div class="recipe-box">
+                <b class="section-head">Ingredients & Preparation:</b>
+                Crispy baguette, savory liver pate, mayonnaise, roasted pork, cucumber slices, pickled carrots, cilantro, and chili sauce.
+
+                <b class="section-head">Step-by-Step Cooking Instructions:</b>
+                <ul class="step-list">
+                    <li><b>Step 1:</b> Slice a fresh French baguette open lengthwise and toast it briefly in an oven until extremely crunchy on the outside.</li>
+                    <li><b>Step 2:</b> Generously spread a layer of creamy liver pate and homemade egg mayonnaise inside both sides of the warm bread.</li>
+                    <li><b>Step 3:</b> Layer sliced roasted pork belly, cold cuts, fresh cucumber strips, and tangy pickled carrots and daikon evenly.</li>
+                    <li><b>Step 4:</b> Top with fresh cilantro leaves, sliced red chilies, and a light drizzle of savory soy sauce before pressing together.</li>
+                </ul>
+
+                <b class="section-head">Why I Like It:</b>
+                I adore Banh Mi because it is the ultimate convenient street food that perfectly harmonizes French and Vietnamese culinary traditions. The sensational texture contrast between the crisp bread crust and the juicy, tangy, flavorful fillings inside makes every single bite immensely delicious and exciting.
+
+                <span class="vi-text"><br><b>Dịch nghĩa tiếng Việt:</b><br>
+                • <b>Nguyên liệu:</b> Bánh mì giòn, pate gan, sốt bơ trứng, thịt xá xíu/thịt nướng, dưa chuột, đồ chua cà rốt, rau mùi và tương ớt.<br>
+                • <b>Các bước thực hiện:</b><br>
+                &nbsp;&nbsp;- <i>Bước 1:</i> Xẻ dọc ổ bánh mì Pháp tươi và nướng qua trong lò cho đến khi vỏ ngoài cực kỳ giòn rụm.<br>
+                &nbsp;&nbsp;- <i>Bước 2:</i> Phết một lớp pate gan béo ngậy và sốt bơ trứng tự làm vào cả hai bên mặt trong của ổ bánh ấm nóng.<br>
+                &nbsp;&nbsp;- <i>Bước 3:</i> Xếp các lát thịt lợn nướng, chả lụa, dưa chuột thái cọng và dưa góp cà rốt củ cải chua ngọt vào giữa.<br>
+                &nbsp;&nbsp;- <i>Bước 4:</i> Thêm rau mùi tươi, vài lát ớt tươi và rưới chút nước tương đậm đà trước khi kẹp bánh lại.<br>
+                • <b>Lý do tớ thích:</b> Tớ mê bánh mì vì đây là món ăn đường phố tiện lợi đỉnh cao hòa quyện hoàn hảo giữa ẩm thực Pháp và Việt Nam. Sự tương phản cảm giác tuyệt vời giữa vỏ bánh giòn tan và phần nhân đậm đà, chua ngọt mọng nước khiến mỗi miếng cắn đều cực kỳ ngon miệng.</span>
             </div>
         </div>
 
-        <div class="food-item">
-            <span class="badge-food">4. Useful Food Questions (Câu hỏi nói về món ăn)</span>
-            <div class="english-explain">
-                • <b>Q: What is your favorite dish?</b> <br>
-                &nbsp;&nbsp;<b>A:</b> My favorite dish is Pho because it tastes delicious and warm.<br>
-                <span class="vi-text">Dịch: Món ăn yêu thích của bạn là gì? - Món yêu thích của tớ là Phở vì nó có vị rất ngon và ấm áp.</span><br><br>
-                • <b>Q: Can you cook?</b> <br>
-                &nbsp;&nbsp;<b>A:</b> Yes, I can cook simple dishes like fried rice and omelet.<br>
-                <span class="vi-text">Dịch: Bạn có biết nấu ăn không? - Có, tớ có thể nấu các món đơn giản như cơm chiên và trứng chiên.</span>
+        <!-- Món 4: Mì Ý Sốt Bò Băm -->
+        <div class="food-card">
+            <span class="badge-food">4. Spaghetti Bolognese (Mì Ý Sốt Bò Băm)</span>
+            <div class="recipe-box">
+                <b class="section-head">Ingredients & Preparation:</b>
+                Spaghetti pasta, minced beef, ripe tomatoes, onions, garlic, olive oil, tomato paste, dried oregano, and grated Parmesan cheese.
+
+                <b class="section-head">Step-by-Step Cooking Instructions:</b>
+                <ul class="step-list">
+                    <li><b>Step 1:</b> Boil spaghetti noodles in salted water for eight minutes until al dente, then drain and toss with olive oil.</li>
+                    <li><b>Step 2:</b> Fry diced onions and minced garlic in olive oil until translucent, then add ground beef and cook until golden brown.</li>
+                    <li><b>Step 3:</b> Add tomato paste, crushed tomatoes, oregano, and simmer gently on low heat for twenty minutes to develop deep flavors.</li>
+                    <li><b>Step 4:</b> Plate the cooked pasta, pour the rich beef Bolognese sauce over it, and sprinkle generously with freshly grated Parmesan cheese.</li>
+                </ul>
+
+                <b class="section-head">Why I Like It:</b>
+                Spaghetti Bolognese is one of my favorite comforting Western dishes because it is rich, savory, and satisfying to eat with family. I really love the hearty flavor of slow-cooked tomato beef sauce combined with perfectly cooked pasta noodles, making weekend dinners feel extra warm and special.
+
+                <span class="vi-text"><br><b>Dịch nghĩa tiếng Việt:</b><br>
+                • <b>Nguyên liệu:</b> Mì Ý (Spaghetti), thịt bò băm, cà chua chín, hành tây, tỏi, dầu oliu, sốt cà chua cô đặc, lá thơm oregano và phô mai Parmesan bào.<br>
+                • <b>Các bước thực hiện:</b><br>
+                &nbsp;&nbsp;- <i>Bước 1:</i> Luộc mì spaghetti trong nước muối khoảng 8 phút cho vừa chín tới, vớt ra ráo nước và trộn chút dầu oliu.<br>
+                &nbsp;&nbsp;- <i>Bước 2:</i> Phi thơm hành tây thái nhỏ và tỏi băm với dầu oliu, cho thịt bò băm vào xào đến khi chín săn lại.<br>
+                &nbsp;&nbsp;- <i>Bước 3:</i> Thêm sốt cà chua cô đặc, cà chua băm nhỏ, lá oregano và ninh nhỏ lửa trong 20 phút để hương vị ngấm sâu.<br>
+                &nbsp;&nbsp;- <i>Bước 4:</i> Bày mì ra đĩa, chan sốt bò băm đậm đà lên trên và rắc phô mai Parmesan bào sợi trước khi thưởng thức.<br>
+                • <b>Lý do tớ thích:</b> Mì Ý sốt bò băm là một trong những món Âu ấm cúng tớ thích nhất vì vị đậm đà, thơm ngon và rất thích hợp ăn cùng gia đình. Tớ rất yêu hương vị đượm đà của sốt cà chua thịt bò ninh kỹ hòa quyện cùng sợi mì dai ngon, làm cho bữa tối cuối tuần thêm phần ấm áp.</span>
             </div>
         </div>
+
     </div>
 
 </div>
